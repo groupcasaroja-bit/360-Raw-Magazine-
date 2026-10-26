@@ -1,0 +1,20 @@
+---
+layout: layouts/base.njk
+title: "360 Raw Magazine | Culture. Style. The World."
+description: "Culture, fashion, art, entertainment, photography and global events from 360 Raw Magazine."
+permalink: "/index.html"
+---
+<main class="wrap">
+<section class="hero-grid" id="latest">
+<article class="hero-main"><div class="hero-copy"><div class="eyebrow">The 360° perspective · Editor’s pick</div><h1>Culture moves fast. We look closer.</h1><p class="dek">A global view of the people, ideas and images shaping fashion, art, entertainment and contemporary life.</p><div class="byline">360 Raw Magazine · Editorial Desk</div></div></article>
+<aside class="hero-side" aria-label="Top stories">
+{% for post in collections.posts | reverse %}{% if loop.index <= 3 %}<article class="side-story"><div class="tag">{{ post.data.category or 'Latest' }}</div><h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3><p>{{ post.data.description or '' }}</p></article>{% endif %}{% endfor %}
+</aside></section>
+<section id="culture"><div class="section-head"><h2>Latest stories</h2><a href="#events">Explore the coverage ↗</a></div><div class="story-grid">
+{% for post in collections.posts | reverse %}<article class="story-card" id="{{ (post.data.category or 'latest') | slug }}"><a href="{{ post.url }}"><div class="visual {% if post.data.featured_image %}has-image{% else %}{{ (post.data.category or 'city') | slug }}{% endif %}">{% if post.data.featured_image %}<img src="{{ post.data.featured_image }}" alt="{{ post.data.title }}">{% endif %}</div></a><div class="tag">{{ post.data.category or 'Culture' }}</div><h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3><p>{{ post.data.description or '' }}</p><div class="meta">{{ post.data.author or '360 Raw Magazine' }} · {{ post.data.date | readableDate }}</div></article>{% endfor %}
+{% if not collections.posts.length %}<p class="no-stories">New stories will appear here after you publish them from the editorial panel.</p>{% endif %}
+</div></section>
+<section class="feature-band" id="events"><div><div class="eyebrow">Our point of view</div><h2>Not just what’s happening.<br>Why it matters.</h2></div><div><p>Since 2007, 360 Raw Magazine has explored the intersection of photography, fashion, culture, luxury and entertainment. Our perspective is rooted in visual storytelling and open to the world.</p><a href="#about">Discover 360 Raw</a></div></section>
+<section class="lower-grid" id="about"><div><div class="section-head"><h2>On the radar</h2><a href="#events">More from 360 Raw ↗</a></div><ul class="brief-list">{% for post in collections.posts | reverse %}{% if loop.index <= 3 %}<li><div class="tag">{{ post.data.category or 'Latest' }}</div><h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3><p>{{ post.data.description or '' }}</p></li>{% endif %}{% endfor %}</ul></div>
+<aside class="newsletter"><div class="eyebrow">The 360 Raw briefing</div><h2>Culture in your inbox.</h2><p>A considered edit of the stories, images and events worth your attention.</p><form onsubmit="event.preventDefault();document.getElementById('newsletter-msg').textContent='Thanks for your interest. Newsletter signup needs to be connected to your email platform.';"><input type="email" aria-label="Email address" placeholder="Your email address" required><button type="submit">Sign me up ↗</button></form><small id="newsletter-msg">By subscribing, you agree to receive editorial updates from 360 Raw Magazine.</small></aside></section>
+</main>

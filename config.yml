@@ -1,0 +1,50 @@
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/YOUR_REPOSITORY
+  branch: main
+  # Para publicar, hay que configurar el acceso OAuth seguro del CMS.
+  # No pegues contraseñas, secretos ni tokens en este archivo.
+
+site_url: https://360-raw-magazine.netlify.app
+display_url: https://360-raw-magazine.netlify.app
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+publish_mode: editorial_workflow
+locale: "en"
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: "posts"
+    label: "Noticias"
+    label_singular: "Noticia"
+    folder: "src/posts"
+    create: true
+    delete: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    summary: "{{title}} · {{date}} · {{category}}"
+    sortable_fields: ["date", "title", "category"]
+    fields:
+      - { label: "Titular", name: "title", widget: "string" }
+      - { label: "Fecha de publicación", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { label: "Categoría", name: "category", widget: "select", options: ["Culture", "Fashion", "Entertainment", "Luxury", "Photography", "Art", "World", "Events", "Technology", "Sports"], default: "Culture" }
+      - { label: "Autor", name: "author", widget: "string", default: "360 Raw Magazine" }
+      - { label: "Resumen", name: "description", widget: "text" }
+      - { label: "Fotografía principal", name: "featured_image", widget: "image", required: false }
+      - { label: "Destacar en portada", name: "featured", widget: "boolean", default: false, required: false }
+      - { label: "Etiquetas", name: "tags", widget: "list", required: false }
+      - { label: "Contenido de la noticia", name: "body", widget: "markdown" }
+  - name: "pages"
+    label: "Páginas"
+    files:
+      - label: "Acerca de 360 Raw"
+        name: "about"
+        file: "src/about.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Contenido", name: "body", widget: "markdown" }
