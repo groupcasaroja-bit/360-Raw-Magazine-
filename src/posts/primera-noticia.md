@@ -1,15 +1,17 @@
 ---
+
+---
 layout: layouts/base.njk
 title: "360 Raw Magazine presenta su primera noticia"
 description: "Descubre las últimas noticias de cultura, arte, moda y entretenimiento en 360 Raw Magazine."
 date: 2026-10-26
 tags:
+  - posts
+---
 
-posts
+# Bienvenidos a 360 Raw Magazine
 
-Bienvenidos a 360 Raw Magazine
-
-Culture. Style. The World.
+**Culture. Style. The World.**
 
 En 360 Raw Magazine exploramos las historias que conectan la cultura, el arte, la moda, el entretenimiento, la tecnología y los acontecimientos internacionales.
 
