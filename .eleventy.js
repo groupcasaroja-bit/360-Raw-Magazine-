@@ -10,7 +10,7 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addFilter("slug", (value) => String(value || "latest").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""));
   return {
-    dir: { input: "src", includes: "layouts", output: "_site" },
+    dir: { input: "src", includes: "_includes", output: "_site" },
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     templateFormats: ["md", "njk", "html"]
