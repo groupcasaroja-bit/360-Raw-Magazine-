@@ -1,7 +1,7 @@
 const { DateTime } = require("luxon");
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "admin": "admin" });
-  eleventyConfig.addPassthroughCopy({ "static": "/" });
+  
   eleventyConfig.addFilter("dateDisplay", () => DateTime.now().toFormat("cccc, LLLL dd, yyyy"));
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     if (!dateObj) return "";
