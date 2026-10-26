@@ -1,0 +1,5 @@
+[build]
+  command = "npm run build"
+  publish = "_site"
+
+# La ruta /admin/ usa los archivos de Decap CMS.
