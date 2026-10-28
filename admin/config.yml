@@ -1,7 +1,7 @@
 admin/config.yml
 backend:
   name: github
-  repo: YOUR_GITHUB_USERNAME/YOUR_REPOSITORY
+  repo: groupcasaroja-bit/360-Raw-Magazine-
   branch: main
   # Para publicar, hay que configurar el acceso OAuth seguro del CMS.
   # No pegues contraseñas, secretos ni tokens en este archivo.
